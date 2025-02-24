@@ -37,6 +37,10 @@ public class FirstSteps {
     }
 
     public int sum(int[] array) {
+        if (array == null || array.length == 0) {
+            return 0;
+        }
+
         int summa = 0;
         for (int el : array) {
             summa += el;
@@ -88,16 +92,14 @@ public class FirstSteps {
     }
 
     public boolean isSortedDescendant(int[] array) {
-        boolean isSorted = true;
         if (array != null && array.length > 0) {
             for (int i = 1; i < array.length; i++) {
-                if (array[i - 1] < array[i]) {
-                    isSorted = false;
-                    break;
+                if (array[i - 1] <= array[i]) {
+                    return false;
                 }
             }
         }
-        return isSorted;
+        return true;
     }
 
     public void cube(int[] array) {
